@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mju4.embproject">
+
     <!-- 반드시 추가 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 위치정보활용시 추가 -->
@@ -11,6 +12,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- WIFI 상태활용시 추가 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
     <!-- 중략 -->
     <application
         android:allowBackup="true"
@@ -26,8 +28,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".NmapActivity"></activity>
+        <activity android:name=".singupActivity" />
+        <activity android:name=".NmapActivity" />
+        <activity android:name=".FindActivity" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>
