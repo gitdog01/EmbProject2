@@ -31,7 +31,8 @@
         <activity android:name=".singupActivity" />
         <activity android:name=".NmapActivity" />
         <activity android:name=".FindActivity" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".Enroll_locationActivit"></activity>
     </application>
 
 </manifest>

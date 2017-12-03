@@ -1,0 +1,102 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fde37a"
+    tools:context="com.example.mju4.embproject.FindActivity">
+
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textSize="23dp"
+        android:textColor="@color/colorAccent"
+        android:text="장소 등록하기" />
+
+    <TextView
+        android:text="이벤트를 열 장소를 등록해주세요."
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editTextEventName"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:hint="이벤트 이름"
+        android:inputType="text" />
+
+
+    <EditText
+        android:id="@+id/editTextEventCo"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:hint="상호명"
+        android:inputType="text" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editTextEventOpenTime"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:hint="시작 시간"
+            android:inputType="textEmailAddress|datetime" />
+
+        <EditText
+            android:id="@+id/editTextEventCloseTime"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:hint="종료 시간"
+            android:inputType="textEmailAddress|datetime" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/editTextEventLocation"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:hint="위치"
+            android:inputType="text" />
+        <Button
+            android:id="@+id/buttonFindLocation"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:layout_gravity="center_horizontal"
+            android:text="위치 찾기" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonEnroll"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:layout_gravity="center_horizontal"
+        android:text="등록하기" />
+
+</LinearLayout>
