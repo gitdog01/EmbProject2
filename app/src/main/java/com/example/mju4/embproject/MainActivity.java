@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView textviewMessage;
     TextView textviewFindPassword;
     ProgressDialog progressDialog;
+    
     //define firebase object
     FirebaseAuth firebaseAuth;
 

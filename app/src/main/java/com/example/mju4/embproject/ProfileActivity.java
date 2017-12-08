@@ -27,6 +27,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private Button buttonLogout;
     private TextView textivewDelete;
     private Button buttonNewEnroll;
+    private Button buttonGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
         textivewDelete = (TextView) findViewById(R.id.textviewDelete);
         buttonNewEnroll = (Button)findViewById(R.id.buttonNewEnroll);
+        buttonGroup = (Button)findViewById(R.id.buttonGroup);
 
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
@@ -54,6 +56,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         textViewUserEmail.setText("반갑습니다.\n"+ user.getEmail()+"으로 로그인 하였습니다.");
 
         //logout button event
+        buttonGroup.setOnClickListener(this);
         buttonLogout.setOnClickListener(this);
         textivewDelete.setOnClickListener(this);
         buttonNewEnroll.setOnClickListener(this);
@@ -93,6 +96,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 }
             });
             alert_confirm.show();
+        }
+        if(view == buttonGroup){
+            startActivity(new Intent(this, GroupActivity.class));
         }
         if(view == buttonNewEnroll){
             startActivity(new Intent(this, Enroll_locationActivit.class));

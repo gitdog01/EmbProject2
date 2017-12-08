@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
-        android:hint="상호명"
+        android:hint="이벤트 설명"
         android:inputType="text" />
 
     <LinearLayout
@@ -53,17 +53,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
-            android:hint="시작 시간"
+            android:hint="시간"
             android:inputType="textEmailAddress|datetime" />
 
-        <EditText
-            android:id="@+id/editTextEventCloseTime"
+        <Button
+            android:id="@+id/buttonSelectTime"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
-            android:hint="종료 시간"
-            android:inputType="textEmailAddress|datetime" />
+            android:text="종료 시간 선택"
+            />
 
     </LinearLayout>
 

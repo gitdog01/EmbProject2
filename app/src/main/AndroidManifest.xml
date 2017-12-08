@@ -32,7 +32,9 @@
         <activity android:name=".NmapActivity" />
         <activity android:name=".FindActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".Enroll_locationActivit"></activity>
+        <activity android:name=".Enroll_locationActivit" />
+        <activity android:name=".ChatRoomActivity" />
+        <activity android:name=".GroupActivity"></activity>
     </application>
 
 </manifest>
