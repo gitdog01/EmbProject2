@@ -76,18 +76,6 @@ public class Enroll_locationActivit extends AppCompatActivity implements View.On
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
 
-    private final NMapLocationManager.OnLocationChangeListener onMyLocationChangeListener = new NMapLocationManager.OnLocationChangeListener() {
-        @Override
-        public boolean onLocationChanged(NMapLocationManager locationManager, NGeoPoint myLocation) {
-            mGeoPoint.set(myLocation);
-            return true;
-        }
-        @Override
-        public void onLocationUpdateTimeout(NMapLocationManager nMapLocationManager) {}
-        @Override
-        public void onLocationUnavailableArea(NMapLocationManager nMapLocationManager, NGeoPoint nGeoPoint) {}
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,8 +121,8 @@ public class Enroll_locationActivit extends AppCompatActivity implements View.On
 
 
         mGeoPoint = new NGeoPoint();
-        mapLocationManager = new NMapLocationManager(this);
-        mapLocationManager.setOnLocationChangeListener(onMyLocationChangeListener);
+        //mapLocationManager = new NMapLocationManager(this);
+        //mapLocationManager.setOnLocationChangeListener(onMyLocationChangeListener);
         //mGeoPoint = mapLocationManager.getMyLocation();//현재위치 저장
 
         dialog = new TimePickerDialog(this, listener, date.getHours(), date.getMinutes(), false);

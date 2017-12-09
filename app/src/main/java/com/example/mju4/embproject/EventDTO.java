@@ -45,4 +45,12 @@ public class EventDTO {
     public String getEventName() {
         return EventName;
     }
+
+    public void setLongitude(double longitude){ this.Longitude =longitude ;}
+    public void setLatitude(double latitude){ this.Latitude =latitude ;}
+    public void setUserName(String userName){ this.userName = userName; }
+    public void setEventName(String eventName){ this.EventName = eventName; }
+    public void setEventCo(String eventCo){ this.EventCo = eventCo; }
+    public void setEventTime(Date date){this.EventTime = date; }
+
 }

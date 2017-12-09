@@ -87,7 +87,9 @@ public class ChatRoomActivity extends AppCompatActivity implements View.OnClickL
             startActivity(intent);
         }
         if(view == buttonFindBox){
-            startActivity(new Intent(this, NmapActivity.class));
+            Intent intent = new Intent(this, NmapActivity.class);
+            intent.putExtra("chatName", CHAT_NAME);
+            startActivity(intent);
         }
         if(view == buttonChatExit){
             startActivity(new Intent(this, GroupActivity.class));

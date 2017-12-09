@@ -31,7 +31,9 @@ public class GroupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_group);
 
         user_chat = (EditText) findViewById(R.id.user_chat);
+        user_chat.setText("Chat1");
         user_edit = (EditText) findViewById(R.id.user_edit);
+        user_edit.setText("coco");
         user_next = (Button) findViewById(R.id.user_next);
         chat_list = (ListView) findViewById(R.id.chat_list);
 
