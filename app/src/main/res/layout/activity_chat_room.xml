@@ -25,11 +25,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/buttonChatSend"
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="보내기" />
 
@@ -39,6 +39,26 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/buttonEnroll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="달콤 박스 등록" />
 
+            <Button
+                android:id="@+id/buttonFindBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="달콤 박스 찾기" />
+            <Button
+                android:id="@+id/buttonChatExit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나가기" />
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

@@ -26,7 +26,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView textViewUserEmail;
     private Button buttonLogout;
     private TextView textivewDelete;
-    private Button buttonNewEnroll;
     private Button buttonGroup;
 
     @Override
@@ -38,7 +37,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         textViewUserEmail = (TextView) findViewById(R.id.textviewUserEmail);
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
         textivewDelete = (TextView) findViewById(R.id.textviewDelete);
-        buttonNewEnroll = (Button)findViewById(R.id.buttonNewEnroll);
         buttonGroup = (Button)findViewById(R.id.buttonGroup);
 
         //initializing firebase authentication object
@@ -59,7 +57,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         buttonGroup.setOnClickListener(this);
         buttonLogout.setOnClickListener(this);
         textivewDelete.setOnClickListener(this);
-        buttonNewEnroll.setOnClickListener(this);
 
     }
 
@@ -99,9 +96,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
         if(view == buttonGroup){
             startActivity(new Intent(this, GroupActivity.class));
-        }
-        if(view == buttonNewEnroll){
-            startActivity(new Intent(this, Enroll_locationActivit.class));
         }
     }
 

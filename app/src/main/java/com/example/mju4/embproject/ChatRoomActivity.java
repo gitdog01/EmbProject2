@@ -16,7 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class ChatRoomActivity extends AppCompatActivity {
+public class ChatRoomActivity extends AppCompatActivity implements View.OnClickListener {
 
     private String CHAT_NAME;
     private String USER_NAME;
@@ -24,6 +24,9 @@ public class ChatRoomActivity extends AppCompatActivity {
     private ListView chat_view;
     private EditText chat_edit;
     private Button chat_send;
+    private Button buttonNewEnroll;
+    private Button buttonFindBox;
+    private Button buttonChatExit;
 
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
@@ -37,6 +40,9 @@ public class ChatRoomActivity extends AppCompatActivity {
         chat_view = (ListView) findViewById(R.id.listViewChat);
         chat_edit = (EditText) findViewById(R.id.editTextChat);
         chat_send = (Button) findViewById(R.id.buttonChatSend);
+        buttonNewEnroll = (Button) findViewById(R.id.buttonEnroll);
+        buttonFindBox = (Button) findViewById(R.id.buttonFindBox);
+        buttonChatExit = (Button) findViewById(R.id.buttonChatExit);
 
         // 로그인 화면에서 받아온 채팅방 이름, 유저 이름 저장
         Intent intent = getIntent();
@@ -48,18 +54,11 @@ public class ChatRoomActivity extends AppCompatActivity {
 
 
         // 메시지 전송 버튼에 대한 클릭 리스너 지정
-        chat_send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (chat_edit.getText().toString().equals(""))
-                    return;
+        buttonChatExit.setOnClickListener(this);
+        buttonFindBox.setOnClickListener(this);
+        buttonNewEnroll.setOnClickListener(this);
+        chat_send.setOnClickListener(this);
 
-                ChatDTO chat = new ChatDTO(USER_NAME, chat_edit.getText().toString()); //ChatDTO를 이용하여 데이터를 묶는다.
-                databaseReference.child("chat").child(CHAT_NAME).push().setValue(chat); // 데이터 푸쉬
-                chat_edit.setText(""); //입력창 초기화
-
-            }
-        });
     }
 
     private void addMessage(DataSnapshot dataSnapshot, ArrayAdapter<String> adapter) {
@@ -70,6 +69,30 @@ public class ChatRoomActivity extends AppCompatActivity {
     private void removeMessage(DataSnapshot dataSnapshot, ArrayAdapter<String> adapter) {
         ChatDTO chatDTO = dataSnapshot.getValue(ChatDTO.class);
         adapter.remove(chatDTO.getUserName() + " : " + chatDTO.getMessage());
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view == chat_send){
+            if (chat_edit.getText().toString().equals(""))
+                return;
+            ChatDTO chat = new ChatDTO(USER_NAME, chat_edit.getText().toString()); //ChatDTO를 이용하여 데이터를 묶는다.
+            databaseReference.child("chat").child(CHAT_NAME).push().setValue(chat); // 데이터 푸쉬
+            chat_edit.setText(""); //입력창 초기화
+        }
+        if(view == buttonNewEnroll){
+            Intent intent = new Intent(this, Enroll_locationActivit.class);
+            intent.putExtra("chatName", CHAT_NAME);
+            intent.putExtra("userName", USER_NAME);
+            startActivity(intent);
+        }
+        if(view == buttonFindBox){
+            startActivity(new Intent(this, NmapActivity.class));
+        }
+        if(view == buttonChatExit){
+            startActivity(new Intent(this, GroupActivity.class));
+        }
+
     }
 
     private void openChat(String chatName) {
@@ -107,6 +130,11 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }
 
