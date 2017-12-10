@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,6 +23,8 @@ public class GroupActivity extends AppCompatActivity {
     private Button user_next;
     private ListView chat_list;
 
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
 
@@ -31,9 +34,8 @@ public class GroupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_group);
 
         user_chat = (EditText) findViewById(R.id.user_chat);
-        user_chat.setText("Chat1");
         user_edit = (EditText) findViewById(R.id.user_edit);
-        user_edit.setText("coco");
+        user_edit.setText(firebaseAuth.getCurrentUser().getEmail());
         user_next = (Button) findViewById(R.id.user_next);
         chat_list = (ListView) findViewById(R.id.chat_list);
 

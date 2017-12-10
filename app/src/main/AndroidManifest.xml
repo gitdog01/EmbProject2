@@ -2,6 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mju4.embproject">
 
+    <!-- 반드시 추가 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 위치정보활용시 추가 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 위치정보활용시 추가 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- WIFI 상태활용시 추가 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- WIFI 상태활용시 추가 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,18 +33,13 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".Enroll_locationActivit" />
         <activity android:name=".ChatRoomActivity" />
-        <activity android:name=".GroupActivity"></activity>
+        <activity android:name=".GroupActivity" />
+        <activity android:name=".SettingActivity" />
 
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
-    <!-- 반드시 추가 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 위치정보활용시 추가 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- 위치정보활용시 추가 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- WIFI 상태활용시 추가 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!-- WIFI 상태활용시 추가 -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
 </manifest>

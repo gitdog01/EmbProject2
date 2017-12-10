@@ -206,13 +206,32 @@ public class NmapActivity extends NMapActivity {
                 EventDTO eventDTO = dataSnapshot.getValue(EventDTO.class);  // eventDTO를 가져오고
                 Log.d(TAG, "Username=" + eventDTO.getUserName() + ", Eventname=" + eventDTO.getEventName() + "ChildChange");
 
-                poiData.beginPOIdata(10);
-                poiData.addPOIitem(eventDTO.getLongitude(), eventDTO.getLatitude(), eventDTO.getEventName(), markerId, 0);
-                poiData.endPOIdata();
-                // 위치 데이터를 사용하여 오버래이 생성
-                NMapPOIdataOverlay poiDataOverlay = mOverlayManager
-                        .createPOIdataOverlay(poiData, null);
-                poiDataOverlay.showAllPOIdata(0);
+                if((eventDTO.getEventTime().getHours()-date.getHours())>0){
+
+                    poiData = new NMapPOIdata(1, mMapViewResourceProvider);
+                    poiData.beginPOIdata(1);
+                    Log.d(TAG, "Username=" + eventDTO.getUserName() + ", Eventname=" + eventDTO.getEventName() + "ChildAdd" + eventDTO.getLongitude() + "/" + eventDTO.getLatitude());
+                    poiData.addPOIitem(eventDTO.getLongitude(), eventDTO.getLatitude(), eventDTO.getEventName(), markerId, 0);
+                    poiData.endPOIdata();
+                    // 위치 데이터를 사용하여 오버래이 생성
+                    NMapPOIdataOverlay poiDataOverlay = mOverlayManager
+                            .createPOIdataOverlay(poiData, null);
+                    poiDataOverlay.showAllPOIdata(0);
+
+                }else if(eventDTO.getEventTime().getHours()-date.getHours()==0){
+                    if((eventDTO.getEventTime().getMinutes()-date.getMinutes())>0){
+                        poiData = new NMapPOIdata(1, mMapViewResourceProvider);
+                        poiData.beginPOIdata(1);
+                        Log.d(TAG, "Username=" + eventDTO.getUserName() + ", Eventname=" + eventDTO.getEventName() + "ChildAdd" + eventDTO.getLongitude() + "/" + eventDTO.getLatitude());
+                        poiData.addPOIitem(eventDTO.getLongitude(), eventDTO.getLatitude(), eventDTO.getEventName(), markerId, 0);
+                        poiData.endPOIdata();
+                        // 위치 데이터를 사용하여 오버래이 생성
+                        NMapPOIdataOverlay poiDataOverlay = mOverlayManager
+                                .createPOIdataOverlay(poiData, null);
+                        poiDataOverlay.showAllPOIdata(0);
+                    }
+
+                }
             }
 
             @Override

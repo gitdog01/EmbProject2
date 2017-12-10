@@ -6,6 +6,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -59,12 +62,43 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         textivewDelete.setOnClickListener(this);
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_setting:
+                startActivity(new Intent(this, SettingActivity.class));
+                return true;
+            case R.id.menu_how_use:
+                //동영상 띄워서 어떻게 사용하는지
+                return true;
+            case R.id.menu_what_version:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("AlertDialog Title");
+                builder.setMessage("AlertDialog Content");
+                builder.setPositiveButton("예",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        });
+                builder.show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void onClick(View view) {
         if (view == buttonLogout) {
             firebaseAuth.signOut();
             finish();
+            stopService(new Intent(getApplicationContext(),MyService.class));
             startActivity(new Intent(this, MainActivity.class));
         }
         //회원탈퇴를 클릭하면 회원정보를 삭제한다. 삭제전에 컨펌창을 하나 띄워야 겠다.
@@ -80,6 +114,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                                         public void onComplete(@NonNull Task<Void> task) {
                                             Toast.makeText(ProfileActivity.this, "계정이 삭제 되었습니다.", Toast.LENGTH_LONG).show();
                                             finish();
+                                            stopService(new Intent(getApplicationContext(),MyService.class));
                                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                         }
                                     });

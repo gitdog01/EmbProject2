@@ -64,7 +64,6 @@ public class Enroll_locationActivit extends AppCompatActivity implements View.On
     private EditText editTextEventCo;
     private EditText editTextEventOpenTime;
     private EditText editTextEventCloseTime;
-    private EditText editTextEventLocation;
     private Button buttonFindLocation;
     private Button buttonEnroll;
     private Button buttonSelectTime;
@@ -102,9 +101,7 @@ public class Enroll_locationActivit extends AppCompatActivity implements View.On
         editTextEventName = (EditText) findViewById(R.id.editTextEventName);
         editTextEventCo = (EditText) findViewById(R.id.editTextEventCo);
         editTextEventOpenTime = (EditText) findViewById(R.id.editTextEventOpenTime);
-        editTextEventLocation = (EditText) findViewById(R.id.editTextEventLocation);
         //Text
-        buttonFindLocation = (Button) findViewById(R.id.buttonFindLocation);
         buttonEnroll = (Button) findViewById(R.id.buttonEnroll);
         buttonSelectTime = (Button) findViewById(R.id.buttonSelectTime);
         //button
@@ -129,7 +126,6 @@ public class Enroll_locationActivit extends AppCompatActivity implements View.On
         //dialog 만들기
 
         editTextEventOpenTime.setText(mFormat.format(date));
-        editTextEventLocation.setText(firebaseAuth.getCurrentUser().getEmail());
         //Text 초기화
 
         buttonFindLocation.setOnClickListener(this);
@@ -140,12 +136,6 @@ public class Enroll_locationActivit extends AppCompatActivity implements View.On
 
     @Override
     public void onClick(View view) {
-        if (view == buttonFindLocation) {
-            progressDialog.setMessage("지도 불러오는 중. 잠시 기다려 주세요...");
-            progressDialog.show();
-            //지도를 띄워주어서 거기를 클릭하는 형식??
-
-        }
         if(view == buttonSelectTime){
             dialog.show();
             //Timepicker을 띄워서 선택

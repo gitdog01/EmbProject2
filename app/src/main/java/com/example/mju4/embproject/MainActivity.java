@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //이미 로그인 되었다면 이 액티비티를 종료함
             finish();
             //그리고 profile 액티비티를 연다.
+
+            //Service 시작
+            startService(new Intent(this,MyService.class));
             startActivity(new Intent(getApplicationContext(), ProfileActivity.class)); //추가해 줄 ProfileActivity
         }
 
@@ -86,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         progressDialog.dismiss();
                         if(task.isSuccessful()) {
                             finish();
+                            //Service 시작
+                            startService(new Intent(getApplicationContext(),MyService.class));
                             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                         } else {
                             Toast.makeText(getApplicationContext(), "로그인 실패!", Toast.LENGTH_LONG).show();
